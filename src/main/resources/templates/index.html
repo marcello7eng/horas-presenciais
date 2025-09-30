@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Horas Presenciais</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+  <div class="main-container">
+    <h1>Horas Presenciais</h1>
+    <a href="/novo" class="button">+ Novo Mês</a>
+    <table>
+        <tr>
+            <th>Mês</th>
+            <th>Horas Totais Presenciais</th>
+            <th>Horas Cumpridas</th>
+            <th>Dias Restantes</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="m : ${meses}">
+            <!-- Converter YYYY-MM para nome do mês e ano -->
+           	<td data-label="Mês" th:text="${m.mesFormatado}"></td>
+            <td data-label="Horas Totais" th:text="${m.horasTotais}"></td>
+            <td data-label="Horas Cumpridas" th:text="${m.horasCumpridas}"></td>
+            <td data-label="Dias Restantes" th:text="${m.diasRestantesFormatado}"></td>
+            <td data-label="Ações">
+                <a th:href="@{'/editar/' + ${m.id}}">Editar</a>
+                <a th:href="@{'/remover/' + ${m.id}}" onclick="return confirm('Deseja realmente remover?')">Remover</a>
+            </td>
+        </tr>
+        
+        <!-- Rodapé com comentário -->
+    <tfoot>
+        <tr>
+            <td colspan="5" style="text-align:left; font-style: italic; padding-top:10px;">
+                ⚠️ O sistema considera <strong>1 dia = 8 horas trabalhadas</strong>.  
+                As <strong>horas cumpridas</strong> devem ser atualizadas conforme você for aumentando o número de horas cumpridas.
+            </td>
+        </tr>
+    </tfoot>
+        
+    </table>
+    <footer style="margin-top:20px; text-align:center; font-size: 12px; color: #667;">
+    <strong>1.0.0</strong>
+</footer>
+  </div>
+</body>
+</html>

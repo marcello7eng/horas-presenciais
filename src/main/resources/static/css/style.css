@@ -1,0 +1,227 @@
+/* Reset & ajustes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #F5F5F5;
+    color: #333;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container central */
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Cabeçalhos */
+h1 {
+    text-align: center;
+    color: #006B35;
+    margin-bottom: 30px;
+    font-size: 1.9rem;
+}
+
+/* Links, botões */
+a {
+    color: #006B35;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #004F28;
+}
+button,
+a.button {
+    background-color: #006B35;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+button:hover,
+a.button:hover {
+    background: #004F28;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table th, table td {
+    padding: 14px 12px;
+    text-align: left;
+}
+table th {
+    background: #006B35;
+    color: #ffffff;
+}
+table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+table tr:hover {
+    background: #eef5ef;
+}
+table td a {
+    margin-right: 10px;
+}
+table td a:last-child {
+    color: #C0392B;
+}
+table td a:last-child:hover {
+    color: #922B21;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+form label {
+    font-weight: 600;
+    color: #2C3E50;
+}
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+form input:focus {
+    border-color: #006B35;
+    box-shadow: 0 0 6px rgba(0,107,53,0.3);
+    outline: none;
+}
+
+/* Link voltar */
+a.voltar {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    color: #555;
+}
+a.voltar:hover {
+    color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    table th {
+        display: none;
+    }
+    table tr {
+        margin-bottom: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+    }
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+    }
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        width: 45%;
+    }
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74,144,226,0.5);
+}
+
+/* ===================== */
+/* DARK MODE AUTOMÁTICO */
+/* ===================== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #EAEAEA;
+    }
+    .main-container {
+        background: #1E1E1E;
+        color: #EAEAEA;
+    }
+    h1 {
+        color: #1DB954;
+    }
+    a {
+        color: #1DB954;
+    }
+    a:hover {
+        color: #17A442;
+    }
+    button, a.button {
+        background-color: #1DB954;
+        color: #121212;
+    }
+    button:hover, a.button:hover {
+        background-color: #17A442;
+    }
+    table th {
+        background: #1DB954;
+        color: #121212;
+    }
+    table tr:nth-child(even) {
+        background: #2A2A2A;
+    }
+    table tr:hover {
+        background: #333333;
+    }
+    form label {
+        color: #EAEAEA;
+    }
+    form input {
+        background: #2A2A2A;
+        color: #EAEAEA;
+        border: 1px solid #444;
+    }
+    form input:focus {
+        border-color: #1DB954;
+        box-shadow: 0 0 6px rgba(29,185,84,0.5);
+    }
+    a.voltar {
+        color: #BBBBBB;
+    }
+    a.voltar:hover {
+        color: #ffffff;
+    }
+}

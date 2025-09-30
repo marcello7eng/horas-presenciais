@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${mesHoras.id} != null ? 'Editar Mês' : 'Novo Mês'">Novo Mês</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="main-container">
+    <h1 th:text="${mesHoras.id} != null ? 'Editar Mês' : 'Novo Mês'">Novo Mês</h1>
+
+    <form th:action="@{/salvar}" th:object="${mesHoras}" method="post">
+        <input type="hidden" th:if="${mesHoras.id}" th:field="*{id}"/>
+
+        <label>Mês</label>
+		<select th:field="*{mes}" required>
+		    <option value="" disabled selected>Selecione um mês...</option>
+		    <option th:each="m : ${mesesEnum}"
+		            th:value="${anoAtual + '-' + m.numero}" 
+		            th:text="${m}"
+		            th:selected="${mesHoras.mes != null} ? ${mesHoras.mes.endsWith(m.numero)} : ${T(java.time.LocalDate).now().monthValue == m.ordinal() + 1}">
+		    </option>
+		</select>
+
+        <label>Horas Totais Presenciais</label>
+        <input type="number" step="0.1" max="999.9" th:field="*{horasTotais}" required/>
+
+        <label>Horas Cumpridas</label>
+        <input type="number" step="0.1" max="999.9" th:field="*{horasCumpridas}" required/>
+        
+        <!-- Comentário sobre arredondamento -->
+		<p style="font-size: 14px; color: #667; margin-top: 8px;">
+		    ⚠️ Para evitar discrepâncias nos horários, sempre arredonde para o <strong>maior valor</strong>.  
+		    Exemplo: <code>12,12</code> deve ser registrado como <code>12,2</code>.  
+		    O sistema permite salvar apenas <strong>uma casa decimal</strong> após a vírgula.
+		</p>
+
+        <button type="submit">Salvar</button>
+     
+    </form>
+
+    <a th:href="@{/}" class="voltar">Voltar</a>
+</div>
+</body>
+</html>
