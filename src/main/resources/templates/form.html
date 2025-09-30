@@ -28,11 +28,11 @@
         <label>Horas Cumpridas</label>
         <input type="number" step="0.1" max="999.9" th:field="*{horasCumpridas}" required/>
         
-        <!-- Comentário sobre arredondamento -->
+          <!-- Comentário sobre arredondamento -->
 		<p style="font-size: 14px; color: #667; margin-top: 8px;">
-		    ⚠️ Para evitar discrepâncias nos horários, sempre arredonde para o <strong>maior valor</strong>.  
-		    Exemplo: <code>12,12</code> deve ser registrado como <code>12,2</code>.  
-		    O sistema permite salvar apenas <strong>uma casa decimal</strong> após a vírgula.
+		    ⚠️  O sistema permite salvar apenas <strong>uma casa decimal</strong> após a vírgula.
+		    Para evitar discrepâncias nas <strong>Horas Totais Presenciais</strong>, sempre arredonde para o <strong>maior valor</strong>.
+		    e <strong>Horas Cumpridas</strong> sempre arredonde para o <strong>menor valor</strong>. 
 		</p>
 
         <button type="submit">Salvar</button>
